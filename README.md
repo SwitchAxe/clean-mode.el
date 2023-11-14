@@ -8,6 +8,9 @@ Insert the following into your `init.el`:
 (add-to-list 'auto-mode-alist '(".dcl" . clean-mode))
 ```
 
+# How it looks
+![Example screenshot with the Adwaita Emacs theme](screenshot.png)
+
 # Feature list (work in progress)
 - [x] function signatures
 - [x] constants, string literals, numbers
