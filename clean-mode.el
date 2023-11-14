@@ -128,8 +128,17 @@
 	 ,clean-tuple-values
 	 ,clean-id-sig)))
 
+(defconst clean-adt-type-sig
+  `(: "("
+    (* (any space))
+    ,clean-id-sig
+    (* (any space))
+    ,clean-id-sig
+    (* (any space))
+    ")"))
+
 (defconst clean-type-sig
-  `(| ,clean-id-sig ,clean-tuple-type-sig ,clean-list-type-sig))
+  `(| ,clean-id-sig ,clean-tuple-type-sig ,clean-list-type-sig ,clean-adt-type-sig))
 
 (defconst clean-comp-type-sig
   `(| ,clean-tuple-list-type-sig
@@ -174,7 +183,7 @@
     ;; lambda functions (until eol)
      (,(rx-to-string clean-lambda-function-eol-sig)
       (0 '((t :underline (:color "DarkBlue")))
-	 append t))
+	 prepend t))
      (,(rx-to-string clean-number-sig)
       0 font-lock-constant-face)
      (,(rx-to-string `(: symbol-start
